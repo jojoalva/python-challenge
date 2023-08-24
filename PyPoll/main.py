@@ -34,14 +34,16 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
         else:
             candidate_counts[target_column] = 1
  
-
+    #print totals
     print(f"Candidates : {unique_candidate_list}")
     print(f"Total votes : {voter_id}")
     print(f"Total votes per candidate: {candidate_counts}")
 
+    #print winner
     winner = max(candidate_counts, key=candidate_counts.get)
     print(f"Winner:{winner}")
     
+    #print Analyisis
     message= (
         f"Election Results\n"
         f".....................\n"
@@ -50,7 +52,7 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
         f"{candidate_counts}\n"
         f".....................\n")   
         
-    
+    #add to message function futher
     for candidate, count in candidate_counts.items():
         percentage = round((count / voter_id) * 100, 3)
         print(f"{candidate}: {percentage}%")
@@ -58,7 +60,7 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
     message += (f".....................\n"
         f"Winner: {winner}")
 
-     #create new text file with analysis
+     #create new text file with analysis as above
     with open("PyPoll.txt", "w") as f:
         f.write(message)
 # %%
