@@ -38,11 +38,7 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
     print(f"Candidates : {unique_candidate_list}")
     print(f"Total votes : {voter_id}")
     print(f"Total votes per candidate: {candidate_counts}")
-
-    #print winner
-    winner = max(candidate_counts, key=candidate_counts.get)
-    print(f"Winner:{winner}")
-    
+       
     #print Analyisis
     message= (
         f"Election Results\n"
@@ -57,6 +53,10 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
         percentage = round((count / voter_id) * 100, 3)
         print(f"{candidate}: {percentage}%")
         message+= (f"{candidate}:{percentage}%\n")
+        
+    #print winner
+    winner = max(candidate_counts, key=candidate_counts.get)
+    print(f"Winner:{winner}")
     message += (f".....................\n"
         f"Winner: {winner}")
 
