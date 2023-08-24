@@ -48,11 +48,11 @@ with open (election_data, encoding= 'UTF-8') as csvfile:
         f"{candidate_counts}\n"
         f".....................\n")   
         
-    #add to message function futher
+    #add to message function futher once worked out percentage votes per candidate
     for candidate, count in candidate_counts.items():
         percentage = round((count / voter_id) * 100, 3)
         print(f"{candidate}: {percentage}%")
-        message+= (f"{candidate}:{percentage}%\n")
+        message+= (f"{candidate}:{percentage}%\n") #this is inside loop to ensure all percentages printed
         
     #print winner
     winner = max(candidate_counts, key=candidate_counts.get)
